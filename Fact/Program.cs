@@ -25,9 +25,10 @@ namespace Fact
                 ThreadPool.QueueUserWorkItem(new WaitCallback(Metod));
                
             }
+            //Console.WriteLine("{0}, {1}", Thread.CurrentThread.ManagedThreadId, val);
             Console.ReadLine();
        
-    }
+        }
         static void Metod(object state)
         {
             lock(lockObject)
@@ -36,7 +37,7 @@ namespace Fact
                 val = val * count;
                 count++;
             }
-            Console.WriteLine("Поток {0}, {1}", Thread.CurrentThread.Name, val);
+            Console.WriteLine("Поток {0}, {1}", Thread.CurrentThread.ManagedThreadId, val);
         }
     }
 }
